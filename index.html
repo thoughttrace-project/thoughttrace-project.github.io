@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThoughtTrace | Understanding User Thoughts in Real-World LLM Interactions</title>
+    <meta name="description" content="ThoughtTrace is the first large-scale dataset that pairs real-world multi-turn human–AI conversations with users' self-reported thoughts — their reasons for sending prompts and reactions to assistant responses.">
+    <link rel="canonical" href="https://thoughttrace.github.io/">
+    <meta property="og:title" content="ThoughtTrace: Understanding User Thoughts in Real-World LLM Interactions">
+    <meta property="og:description" content="1,058 users · 2,155 conversations · 17,058 turns · 10,174 thought annotations across 20 language models.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a href="index.html" class="logo" aria-label="ThoughtTrace home">
+        <img src="./assets/figures/tt_icon.png" alt="" class="logo-mark">
+        <span class="logo-text">ThoughtTrace</span>
+    </a>
+    <nav>
+        <a href="index.html" class="active">Overview</a>
+        <a href="examples.html">Examples</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1><span class="ours">ThoughtTrace</span>: Understanding User Thoughts <br class="title-break">in Real-World LLM Interactions</h1>
+
+        <p class="authors">
+            <a href="https://chuanyangjin.com/" target="_blank" rel="noopener">Chuanyang Jin</a><sup>1</sup>,
+            <a href="https://binzeli.github.io/" target="_blank" rel="noopener">Binze Li</a><sup>1</sup>,
+            <a href="https://www.linkedin.com/in/hxie120/" target="_blank" rel="noopener">Haopeng Xie</a><sup>1</sup>,
+            <a href="https://cathy-fang.com/" target="_blank" rel="noopener">Cathy Mengying Fang</a><sup>2</sup>,
+            <a href="https://tianjianl.github.io/" target="_blank" rel="noopener">Tianjian Li</a><sup>1</sup>,<br>
+            <a href="https://www.shaynelongpre.com/" target="_blank" rel="noopener">Shayne Longpre</a><sup>2</sup>,
+            <a href="https://hxgu.github.io/" target="_blank" rel="noopener">Hongxiang Gu</a><sup>3</sup>,
+            <a href="https://max.imillian.com/" target="_blank" rel="noopener">Maximillian Chen</a><sup>3</sup>,
+            <a href="https://www.tshu.io/" target="_blank" rel="noopener">Tianmin Shu</a><sup>1</sup>
+        </p>
+        <p class="affiliations">
+            <sup>1</sup>Johns Hopkins University &nbsp;·&nbsp;
+            <sup>2</sup>Massachusetts Institute of Technology &nbsp;·&nbsp;
+            <sup>3</sup>Google Research
+        </p>
+
+        <div class="resource-links">
+            <a href="./ThoughtTrace.pdf" class="resource-link" aria-label="Paper" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                Paper
+            </a>
+            <a href="https://huggingface.co/datasets/SCAI-JHU/ThoughtTrace" class="resource-link" aria-label="Data" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                Data
+            </a>
+            <a href="https://github.com/thoughttrace-project/thoughttrace" class="resource-link" aria-label="Code" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                Code
+            </a>
+            <a href="examples.html" class="resource-link" aria-label="Examples">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Examples
+            </a>
+        </div>
+    </section>
+
+    <!-- Stat strip -->
+    <div class="stats">
+        <div class="stat"><span class="num">1,058</span><span class="label">Users</span></div>
+        <div class="stat"><span class="num">2,155</span><span class="label">Conversations</span></div>
+        <div class="stat"><span class="num">17,058</span><span class="label">Turns</span></div>
+        <div class="stat"><span class="num">10,174</span><span class="label">Thoughts</span></div>
+        <div class="stat"><span class="num">20</span><span class="label">LLMs</span></div>
+    </div>
+
+    <!-- Overview -->
+    <h2 class="section-heading">Overview</h2>
+    <p>
+        Conversational AI has reached billions of users, yet existing datasets capture only what people <em>say</em>, not what they <em>think</em>. We introduce <strong><em>ThoughtTrace</em></strong>, the first large-scale dataset that pairs real-world multi-turn human–AI conversations with users' self-reported thoughts: their <em>reasons</em> for sending prompts and <em>reactions</em> to assistant responses.
+    </p>
+    <p>
+        Our analysis shows that <em>ThoughtTrace</em> captures long-horizon, topically diverse interactions, and that thoughts are semantically distinct from messages, difficult for frontier LLMs to infer from context, and tied to conversation stages. Thoughts also provide actionable signals for <strong>user-behavior prediction</strong> (+41.7% relative gain) and <strong>model alignment</strong> (+25.6% win rate).
+    </p>
+
+    <figure class="figure-block">
+        <img src="./assets/figures/example.png" alt="Representative example from ThoughtTracent">
+        <figcaption><strong>Figure&nbsp;1 | A representative example from <em>ThoughtTrace</em>.</strong> A user interacts with a chatbot to complete daily tasks through multi-turn conversations (top), while annotating latent thoughts during the conversations (bottom). Thoughts take two forms: <em>reasons</em> for sending user prompts and <em>reactions</em> to assistant responses, which can be categorized into several types (e.g., <em>task motivation</em>, <em>style expectation</em>). Latent thoughts reveal users' thought traces that drive the interactions in multi-turn conversations, providing valuable signals for user modeling and improving AI assistance.</figcaption>
+    </figure>
+
+    <!-- ============ Conversation Properties ============ -->
+    <h2 class="section-heading">Conversation Properties</h2>
+    <h3 class="group-heading">What do the conversations look like?</h3>
+    <p class="group-kicker">Three properties describe who uses <em>ThoughtTrace</em> and how their conversations unfold.</p>
+
+    <div class="property-grid">
+
+        <article class="card accent-blue">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Conv · 1</span>
+                <span class="card-title"><em>ThoughtTrace</em> captures a representative spectrum of users.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p><em>ThoughtTrace</em> pairs each conversation with rich demographic and usage metadata, reflecting a diverse spectrum of AI users and everyday use cases consistent with the profile of frequent real-world AI users.</p>
+                <figure class="figure-block">
+                    <img src="./assets/figures/demographic_info.png" alt="Demographic breakdown: age, gender, education, occupation, AI usage frequency, and primary purposes.">
+                    <figcaption><strong>Figure&nbsp;2</strong> | Participant demographics and AI-usage patterns across age, gender, education, occupation, frequency of AI use, and primary purposes.</figcaption>
+                </figure>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-green">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Conv · 2</span>
+                <span class="card-title"><em>ThoughtTrace</em> features long-horizon, diverse conversations.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p><em>ThoughtTrace</em> features high-quality, long-horizon conversations with a median of 8 turns (compared to 2 in both WildChat and LMSYS-Chat-1M), and spans seven broad topic categories and 36 fine-grained subtopics with no single category dominating.</p>
+                <figure class="figure-block">
+                    <img src="./assets/figures/conv_length_turns_vs_wildchat_lmsys.png" alt="Turn-length distribution comparison between ThoughtTrace, WildChat, and LMSYS-Chat-1M.">
+                    <figcaption><strong>Figure&nbsp;3a</strong> | Turn distributions: <em>ThoughtTrace</em> peaks at 6–8 turns, while baselines are dominated by 2-turn exchanges.</figcaption>
+                </figure>
+                <figure class="figure-block">
+                    <img src="./assets/figures/topic_distribution.png" alt="Topic distribution across 7 broad topics in ThoughtTrace.">
+                    <figcaption><strong>Figure&nbsp;3b</strong> | Topic distribution in <em>ThoughtTrace</em>, grouped into seven broad domains.</figcaption>
+                </figure>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-purple">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Conv · 3</span>
+                <span class="card-title"><em>ThoughtTrace</em> conversations are dominated by task extension.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Extending, deepening, or building on the prior task accounts for 57.0% of user turns, far outpacing new requests, re-attempts, and variations — and this extension pattern strengthens as conversations progress.</p>
+                <figure class="figure-block">
+                    <img src="./assets/figures/multi_turn_relationship_flow.png" alt="Flow diagram showing transitions between multi-turn relationship types across the first few turns.">
+                    <figcaption><strong>Figure&nbsp;4</strong> | Turn-to-turn transitions of relationship labels across the first three turns and beyond.</figcaption>
+                </figure>
+            </div></div></div>
+        </article>
+
+    </div>
+
+    <!-- ============ Thought Properties ============ -->
+    <h2 class="section-heading">Thought Properties</h2>
+    <h3 class="group-heading">What makes thoughts a useful signal?</h3>
+    <p class="group-kicker">Four properties show why thoughts are a distinct, complementary modality beyond conversation transcripts.</p>
+
+    <div class="property-grid">
+
+        <article class="card accent-blue">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Thought · 1</span>
+                <span class="card-title">Thoughts are different from messages.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Thoughts capture substantial latent information not directly verbalized in conversation, as shown by both embedding-level shifts and LLM-based semantic coverage scoring — supporting their value as a distinct and complementary signal for understanding user behavior.</p>
+                <figure class="figure-block">
+                    <img src="./assets/figures/centered_gap_viz.png" alt="UMAP projections of embedding differences across three paired settings.">
+                    <figcaption><strong>Figure&nbsp;5</strong> | UMAP projections of embedding differences across three paired settings. Message–reason and reaction–next-message pairs exhibit substantially larger semantic shifts than consecutive messages.</figcaption>
+                </figure>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-green">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Thought · 2</span>
+                <span class="card-title">Thoughts are difficult for LLMs to infer.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Thoughts are consistently difficult for three frontier language models (GPT, Gemini, Claude) to infer from context — mean semantic similarity scores of 2.93 for reasons and 2.54 for reactions (1–5 scale), underscoring the value of explicit thought annotations in <em>ThoughtTrace</em>.</p>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-red">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Thought · 3</span>
+                <span class="card-title">Thoughts are diverse in content.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Thoughts in <em>ThoughtTrace</em> span seven reason categories and five reaction categories, capturing a diverse set of unspoken contexts that range from high-level motivations and grounding details to targeted sources of dissatisfaction.</p>
+                <figure class="figure-block">
+                    <img src="./assets/figures/user_reason_taxonomy_pie.png" alt="Seven user reason categories with definitions and examples.">
+                    <figcaption><strong>Figure&nbsp;6a</strong> | Distribution of seven user <em>reason</em> types. Task Motivation &amp; Goal (36.9%) is most prevalent.</figcaption>
+                </figure>
+                <figure class="figure-block">
+                    <img src="./assets/figures/reaction_taxonomy_pie.png" alt="Five user reaction categories with definitions and examples.">
+                    <figcaption><strong>Figure&nbsp;6b</strong> | Distribution of five user <em>reaction</em> types. Explicit Affirmation dominates, with dissatisfaction driven by Content Relevance, Presentation Style, and Scope Fit.</figcaption>
+                </figure>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-purple">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Thought · 4</span>
+                <span class="card-title">Thought dynamics depend on conversation stages.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Thought dynamics depend on conversation stages and multi-turn relationships between messages, while remaining largely independent of conversation topics or length. Task Motivation dominates early turns; Task Continuation takes over later; and Explicit Affirmation steadily rises as conversations converge.</p>
+                <figure class="figure-block">
+                    <img src="./assets/figures/reasons_category_flow_by_stage.png" alt="Reason-type distribution across conversation stages.">
+                    <figcaption><strong>Figure&nbsp;7a</strong> | Reason types shift from Task Motivation in early turns to Task Continuation and context/expectation-driven reasons in later stages.</figcaption>
+                </figure>
+                <figure class="figure-block">
+                    <img src="./assets/figures/reaction_category_flow_by_stage.png" alt="Reaction-type distribution across conversation stages.">
+                    <figcaption><strong>Figure&nbsp;7b</strong> | Reaction types show a steady increase in Explicit Affirmation from early to late stages.</figcaption>
+                </figure>
+            </div></div></div>
+        </article>
+
+    </div>
+
+    <!-- ============ Thought Utility ============ -->
+    <h2 class="section-heading">Thought Utility</h2>
+    <h3 class="group-heading">What can thoughts be used for?</h3>
+    <p class="group-kicker">As a first step, we present two case studies demonstrating the downstream value of thoughts.</p>
+
+    <figure class="figure-block">
+        <img src="./assets/figures/findings.png" alt="Two experiments: (a) thoughts improve user-message prediction, (b) thoughts improve model alignment.">
+    </figure>
+
+    <div class="property-grid">
+
+        <article class="card accent-blue">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Utility · 1</span>
+                <span class="card-title">Thoughts predict user behavior.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Access to thought annotations substantially improves next-user-message prediction across three frontier models, raising the average prediction semantic similarity from <strong>21.6 → 30.6</strong> (a 41.7% relative gain). This points toward user simulators that jointly predict <em>thoughts</em> and <em>messages</em>.</p>
+                <div class="result-table-wrap">
+                    <table class="result-table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>GPT</th>
+                                <th>Gemini</th>
+                                <th>Opus</th>
+                                <th>Avg.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>History-only</td>
+                                <td class="num">21.4</td>
+                                <td class="num">22.1</td>
+                                <td class="num">21.3</td>
+                                <td class="num">21.6</td>
+                            </tr>
+                            <tr class="best">
+                                <td>Thought-augmented</td>
+                                <td class="num">27.4</td>
+                                <td class="num">28.9</td>
+                                <td class="num">35.5</td>
+                                <td class="num">30.6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="result-table-caption"><strong>Table&nbsp;1</strong> | User message prediction results. Three frontier models are evaluated with and without access to annotated thoughts at inference time.</p>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-green">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Utility · 2</span>
+                <span class="card-title">Thoughts improve model alignment.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>Thought-guided rewrites outperform message-guided rewrites by <strong>+4.5%</strong> on Arena-Hard, exceed the base model by <strong>+25.6%</strong>, and WildChat baseline by <strong>+6.6%</strong>, indicating thoughts capture richer dissatisfaction and revision signals than users explicitly articulate in messages.</p>
+                <div class="result-table-wrap">
+                    <table class="result-table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Win</th>
+                                <th>SC Win</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Qwen3.5-4B</td>
+                                <td class="num">24.6</td>
+                                <td class="num">22.5</td>
+                            </tr>
+                            <tr class="indent">
+                                <td>WildChat</td>
+                                <td class="num">41.8</td>
+                                <td class="num">41.5</td>
+                            </tr>
+                            <tr class="indent">
+                                <td><em>ThoughtTrace</em> (messages)</td>
+                                <td class="num">44.0</td>
+                                <td class="num">43.6</td>
+                            </tr>
+                            <tr class="indent best">
+                                <td><em>ThoughtTrace</em> (thoughts)</td>
+                                <td class="num">47.9</td>
+                                <td class="num">48.1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="result-table-caption"><strong>Table&nbsp;2</strong> | Model alignment results on Arena-Hard. Win rate (%) and style-controlled win rate (%) are reported for each training configuration.</p>
+            </div></div></div>
+        </article>
+
+    </div>
+
+    <!-- ============ Future Work ============ -->
+    <h2 class="section-heading">Future Work</h2>
+    <h3 class="group-heading">Where can <em>ThoughtTrace</em> take us next?</h3>
+    <p class="group-kicker"><em>ThoughtTrace</em> opens several directions for future research.</p>
+
+    <div class="property-grid">
+
+        <article class="card accent-blue">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Future · 1</span>
+                <span class="card-title">User modeling.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p><em>ThoughtTrace</em> enables systematic study of the dynamic human mental processes that arise in human–AI interaction: what users think during conversations, how conversational context shapes these thoughts, how thoughts subsequently shape user utterances, and how these dynamics vary across demographic groups.</p>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-green">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Future · 2</span>
+                <span class="card-title">Model training.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p>User thoughts provide a new supervisory signal that models can predict, learn from, and align with, offering a path toward assistants that better capture users' latent goals, expectations, and reactions.</p>
+            </div></div></div>
+        </article>
+
+        <article class="card accent-purple">
+            <button class="card-header" aria-expanded="false">
+                <span class="card-tag">Future · 3</span>
+                <span class="card-title">Evaluation.</span>
+                <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="card-body-wrap"><div class="card-body-inner"><div class="card-body">
+                <p><em>ThoughtTrace</em> enables benchmarks for thought prediction and supports thought-centered measures of user satisfaction, moving evaluation beyond surface-level utterances toward latent intent and subjective experience.</p>
+            </div></div></div>
+        </article>
+
+    </div>
+
+    <!-- Citation -->
+    <h2 class="section-heading">Citation</h2>
+    <div class="citation-block">
+        <button id="copyCitationBtn" class="copy-btn" title="Copy to clipboard" aria-label="Copy citation">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+<pre id="citationText">@article{jin2026thoughttrace,
+  title  = {ThoughtTrace: Understanding User Thoughts in Real-World LLM Interactions},
+  author = {Jin, Chuanyang and Li, Binze and Xie, Haopeng and Fang, Cathy Mengying and
+            Li, Tianjian and Longpre, Shayne and Gu, Hongxiang and
+            Chen, Maximillian and Shu, Tianmin},
+  year   = {2026},
+  url    = {https://thoughttrace-project.github.io/}
+}</pre>
+    </div>
+
+</div>
+
+<footer class="site-footer">
+    <div>© 2026 <em>ThoughtTrace</em> Team</div>
+    <div>Contact: <a href="mailto:cjin33@jhu.edu">cjin33@jhu.edu</a></div>
+</footer>
+
+<script src="./assets/js/site.js"></script>
+</body>
+</html>
