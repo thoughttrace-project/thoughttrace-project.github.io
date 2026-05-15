@@ -31,6 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Collapse long user/assistant messages with Read more / Read less toggle
+    const COLLAPSE_THRESHOLD_PX = 240;
+    document.querySelectorAll('.turn.assistant .bubble, .turn.user .bubble').forEach(bubble => {
+        if (bubble.scrollHeight <= COLLAPSE_THRESHOLD_PX + 40) return;
+
+        bubble.classList.add('collapsible', 'collapsed');
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'read-more-toggle';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '<span class="label">Read more</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+
+        toggle.addEventListener('click', () => {
+            const expanded = bubble.classList.toggle('collapsed') === false;
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            toggle.querySelector('.label').textContent = expanded ? 'Read less' : 'Read more';
+            if (!expanded) {
+                bubble.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
+        });
+
+        bubble.insertAdjacentElement('afterend', toggle);
+    });
+
     // Explorer filter chips
     const chipContainer = document.querySelector('.explorer-controls');
     if (chipContainer) {
@@ -47,6 +72,50 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.display = 'none';
                 }
             });
+            document.querySelectorAll('.toc-group').forEach(group => {
+                if (filter === 'all' || group.dataset.topic === filter) {
+                    group.style.display = '';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
         });
+    }
+
+    // TOC: highlight currently visible conversation
+    const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+    if (tocLinks.length) {
+        const linkById = new Map();
+        tocLinks.forEach(a => {
+            const id = a.getAttribute('href').slice(1);
+            linkById.set(id, a);
+        });
+
+        const setActive = (id) => {
+            tocLinks.forEach(a => a.classList.remove('active'));
+            const link = linkById.get(id);
+            if (link) {
+                link.classList.add('active');
+                const sidebar = document.querySelector('.toc-sidebar');
+                if (sidebar) {
+                    const linkRect = link.getBoundingClientRect();
+                    const sideRect = sidebar.getBoundingClientRect();
+                    if (linkRect.top < sideRect.top || linkRect.bottom > sideRect.bottom) {
+                        link.scrollIntoView({ block: 'nearest' });
+                    }
+                }
+            }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            const visible = entries
+                .filter(e => e.isIntersecting)
+                .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+            if (visible.length) {
+                setActive(visible[0].target.id);
+            }
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+        document.querySelectorAll('.example-card[id]').forEach(card => observer.observe(card));
     }
 });

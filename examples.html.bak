@@ -57,46 +57,46 @@
 
             <div class="toc-group" data-topic="tech">
                 <div class="toc-group-label">Technology</div>
-                <a href="#example-1" class="toc-link">Example 1</a>
+                <a href="#user369_task2_conversation1" class="toc-link">user369_task2_conversation1</a>
             </div>
 
             <div class="toc-group" data-topic="business">
                 <div class="toc-group-label">Business &amp; Society</div>
-                <a href="#example-2" class="toc-link">Example 2</a>
-                <a href="#example-3" class="toc-link">Example 3</a>
-                <a href="#example-4" class="toc-link">Example 4</a>
-                <a href="#example-5" class="toc-link">Example 5</a>
-                <a href="#example-6" class="toc-link">Example 6</a>
+                <a href="#user537_task2_conversation1" class="toc-link">user537_task2_conversation1</a>
+                <a href="#user624_task2_conversation1" class="toc-link">user624_task2_conversation1</a>
+                <a href="#user897_task1_conversation1" class="toc-link">user897_task1_conversation1</a>
+                <a href="#user940_task2_conversation1" class="toc-link">user940_task2_conversation1</a>
+                <a href="#user964_task2_conversation1" class="toc-link">user964_task2_conversation1</a>
             </div>
 
             <div class="toc-group" data-topic="education">
                 <div class="toc-group-label">Education &amp; Knowledge</div>
-                <a href="#example-7" class="toc-link">Example 7</a>
-                <a href="#example-8" class="toc-link">Example 8</a>
-                <a href="#example-9" class="toc-link">Example 9</a>
-                <a href="#example-10" class="toc-link">Example 10</a>
+                <a href="#user170_task2_conversation1" class="toc-link">user170_task2_conversation1</a>
+                <a href="#user564_task2_conversation1" class="toc-link">user564_task2_conversation1</a>
+                <a href="#user157_task1_conversation1" class="toc-link">user157_task1_conversation1</a>
+                <a href="#user1020_task1_conversation1" class="toc-link">user1020_task1_conversation1</a>
             </div>
 
             <div class="toc-group" data-topic="culture">
                 <div class="toc-group-label">Culture &amp; Lifestyle</div>
-                <a href="#example-11" class="toc-link">Example 11</a>
-                <a href="#example-12" class="toc-link">Example 12</a>
-                <a href="#example-13" class="toc-link">Example 13</a>
-                <a href="#example-14" class="toc-link">Example 14</a>
+                <a href="#user6_task2_conversation1" class="toc-link">user6_task2_conversation1</a>
+                <a href="#user461_task2_conversation1" class="toc-link">user461_task2_conversation1</a>
+                <a href="#user369_task1_conversation1" class="toc-link">user369_task1_conversation1</a>
+                <a href="#user584_task1_conversation1" class="toc-link">user584_task1_conversation1</a>
             </div>
 
             <div class="toc-group" data-topic="health">
                 <div class="toc-group-label">Health &amp; Relationships</div>
-                <a href="#example-15" class="toc-link">Example 15</a>
-                <a href="#example-16" class="toc-link">Example 16</a>
-                <a href="#example-17" class="toc-link">Example 17</a>
+                <a href="#user68_task2_conversation1" class="toc-link">user68_task2_conversation1</a>
+                <a href="#user776_task2_conversation1" class="toc-link">user776_task2_conversation1</a>
+                <a href="#user848_task2_conversation1" class="toc-link">user848_task2_conversation1</a>
             </div>
 
             <div class="toc-group" data-topic="other">
                 <div class="toc-group-label">Other Topics</div>
-                <a href="#example-18" class="toc-link">Example 18</a>
-                <a href="#example-19" class="toc-link">Example 19</a>
-                <a href="#example-20" class="toc-link">Example 20</a>
+                <a href="#user680_task2_conversation1" class="toc-link">user680_task2_conversation1</a>
+                <a href="#user838_task1_conversation1" class="toc-link">user838_task1_conversation1</a>
+                <a href="#user804_task2_conversation1" class="toc-link">user804_task2_conversation1</a>
             </div>
         </nav>
     </aside>
@@ -104,8 +104,8 @@
     <div class="explorer-main">
 
 
-    <!-- ============ Example 1 ============ -->
-    <article class="example-card" data-topic="tech" id="example-1">
+    <!-- ============ user369_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="tech" id="user369_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Technology</span>
             <span><strong>Topic:</strong> Laptop purchasing strategy</span>
@@ -509,8 +509,8 @@ In Spain, insurance companies strictly separate <strong>Robo</strong> (robbery w
         </div>
     </article>
 
-    <!-- ============ Example 2 ============ -->
-    <article class="example-card" data-topic="business" id="example-2">
+    <!-- ============ user537_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="business" id="user537_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Business &amp; Society</span>
             <span><strong>Topic:</strong> Digital customer journey</span>
@@ -1172,8 +1172,8 @@ In Spain, insurance companies strictly separate <strong>Robo</strong> (robbery w
         </div>
     </article>
 
-    <!-- ============ Example 3 ============ -->
-    <article class="example-card" data-topic="business" id="example-3">
+    <!-- ============ user624_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="business" id="user624_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Business &amp; Society</span>
             <span><strong>Topic:</strong> Career pivot consulting</span>
@@ -1605,8 +1605,8 @@ In Spain, insurance companies strictly separate <strong>Robo</strong> (robbery w
         </div>
     </article>
 
-    <!-- ============ Example 4 ============ -->
-    <article class="example-card" data-topic="business" id="example-4">
+    <!-- ============ user897_task1_conversation1 ============ -->
+    <article class="example-card" data-topic="business" id="user897_task1_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Business &amp; Society</span>
             <span><strong>Topic:</strong> Asset allocation basics</span>
@@ -1924,8 +1924,8 @@ If you have a <strong>very long time horizon</strong> (20+ years) and the <stron
         </div>
     </article>
 
-    <!-- ============ Example 5 ============ -->
-    <article class="example-card" data-topic="business" id="example-5">
+    <!-- ============ user940_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="business" id="user940_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Business &amp; Society</span>
             <span><strong>Topic:</strong> Job-offer decision matrix</span>
@@ -2235,8 +2235,8 @@ If you have a <strong>very long time horizon</strong> (20+ years) and the <stron
         </div>
     </article>
 
-    <!-- ============ Example 6 ============ -->
-    <article class="example-card" data-topic="business" id="example-6">
+    <!-- ============ user964_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="business" id="user964_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Business &amp; Society</span>
             <span><strong>Topic:</strong> Day-trading strategy</span>
@@ -4389,8 +4389,8 @@ If you have a <strong>very long time horizon</strong> (20+ years) and the <stron
         </div>
     </article>
 
-    <!-- ============ Example 7 ============ -->
-    <article class="example-card" data-topic="education" id="example-7">
+    <!-- ============ user170_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="education" id="user170_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Education &amp; Knowledge</span>
             <span><strong>Topic:</strong> Artillery history research</span>
@@ -4772,8 +4772,8 @@ Typical structure by the late 19th century:</p>
         </div>
     </article>
 
-    <!-- ============ Example 8 ============ -->
-    <article class="example-card" data-topic="education" id="example-8">
+    <!-- ============ user564_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="education" id="user564_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Education &amp; Knowledge</span>
             <span><strong>Topic:</strong> Science project design</span>
@@ -5118,8 +5118,8 @@ In conclusion, electrolysis efficiently removes rust, with rate proportional to 
         </div>
     </article>
 
-    <!-- ============ Example 9 ============ -->
-    <article class="example-card" data-topic="education" id="example-9">
+    <!-- ============ user157_task1_conversation1 ============ -->
+    <article class="example-card" data-topic="education" id="user157_task1_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Education &amp; Knowledge</span>
             <span><strong>Topic:</strong> Exam study plan</span>
@@ -5751,8 +5751,8 @@ Would you like me to:</p>
         </div>
     </article>
 
-    <!-- ============ Example 10 ============ -->
-    <article class="example-card" data-topic="education" id="example-10">
+    <!-- ============ user1020_task1_conversation1 ============ -->
+    <article class="example-card" data-topic="education" id="user1020_task1_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Education &amp; Knowledge</span>
             <span><strong>Topic:</strong> Language learning plan</span>
@@ -6313,8 +6313,8 @@ In Russian, the ends of words change depending on how they are used (these are c
         </div>
     </article>
 
-    <!-- ============ Example 11 ============ -->
-    <article class="example-card" data-topic="culture" id="example-11">
+    <!-- ============ user6_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="culture" id="user6_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Culture &amp; Lifestyle</span>
             <span><strong>Topic:</strong> Adopting a dog</span>
@@ -6749,8 +6749,8 @@ In Russian, the ends of words change depending on how they are used (these are c
         </div>
     </article>
 
-    <!-- ============ Example 12 ============ -->
-    <article class="example-card" data-topic="culture" id="example-12">
+    <!-- ============ user461_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="culture" id="user461_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Culture &amp; Lifestyle</span>
             <span><strong>Topic:</strong> Groceries planning</span>
@@ -7242,8 +7242,8 @@ In Russian, the ends of words change depending on how they are used (these are c
         </div>
     </article>
 
-    <!-- ============ Example 13 ============ -->
-    <article class="example-card" data-topic="culture" id="example-13">
+    <!-- ============ user369_task1_conversation1 ============ -->
+    <article class="example-card" data-topic="culture" id="user369_task1_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Culture &amp; Lifestyle</span>
             <span><strong>Topic:</strong> Madrid study-cafe crawl</span>
@@ -7624,8 +7624,8 @@ The authentic Madrid way to do Friday evening is called <em>"ir de cañas"</em>.
         </div>
     </article>
 
-    <!-- ============ Example 14 ============ -->
-    <article class="example-card" data-topic="culture" id="example-14">
+    <!-- ============ user584_task1_conversation1 ============ -->
+    <article class="example-card" data-topic="culture" id="user584_task1_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Culture &amp; Lifestyle</span>
             <span><strong>Topic:</strong> Cooking healthier at home</span>
@@ -8354,8 +8354,8 @@ The authentic Madrid way to do Friday evening is called <em>"ir de cañas"</em>.
         </div>
     </article>
 
-    <!-- ============ Example 15 ============ -->
-    <article class="example-card" data-topic="health" id="example-15">
+    <!-- ============ user68_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="health" id="user68_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Health &amp; Relationships</span>
             <span><strong>Topic:</strong> Personal relationship</span>
@@ -8508,8 +8508,8 @@ You can try this for a week, or a month. But if you find that you are going home
         </div>
     </article>
 
-    <!-- ============ Example 16 ============ -->
-    <article class="example-card" data-topic="health" id="example-16">
+    <!-- ============ user776_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="health" id="user776_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Health &amp; Relationships</span>
             <span><strong>Topic:</strong> Not finding joy in eating</span>
@@ -8893,8 +8893,8 @@ You can try this for a week, or a month. But if you find that you are going home
         </div>
     </article>
 
-    <!-- ============ Example 17 ============ -->
-    <article class="example-card" data-topic="health" id="example-17">
+    <!-- ============ user848_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="health" id="user848_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Health &amp; Relationships</span>
             <span><strong>Topic:</strong> Hypertrophy training plan</span>
@@ -9685,8 +9685,8 @@ Lat PD   | 110    | 11/10/10        | 1   | Last set form broke, repeat weight
         </div>
     </article>
 
-    <!-- ============ Example 18 ============ -->
-    <article class="example-card" data-topic="other" id="example-18">
+    <!-- ============ user680_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="other" id="user680_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Other Topics</span>
             <span><strong>Topic:</strong> Dealing with a wasps nest</span>
@@ -10233,8 +10233,8 @@ Lat PD   | 110    | 11/10/10        | 1   | Last set form broke, repeat weight
         </div>
     </article>
 
-    <!-- ============ Example 19 ============ -->
-    <article class="example-card" data-topic="other" id="example-19">
+    <!-- ============ user838_task1_conversation1 ============ -->
+    <article class="example-card" data-topic="other" id="user838_task1_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Other Topics</span>
             <span><strong>Topic:</strong> Installing a bidet</span>
@@ -10764,8 +10764,8 @@ Lat PD   | 110    | 11/10/10        | 1   | Last set form broke, repeat weight
         </div>
     </article>
 
-    <!-- ============ Example 20 ============ -->
-    <article class="example-card" data-topic="other" id="example-20">
+    <!-- ============ user804_task2_conversation1 ============ -->
+    <article class="example-card" data-topic="other" id="user804_task2_conversation1">
         <div class="example-meta">
             <span><strong>Category:</strong> Other Topics</span>
             <span><strong>Topic:</strong> Straining soy milk efficiently</span>
