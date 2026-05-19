@@ -282,6 +282,9 @@ em { font-style: italic; }
     border-radius: var(--radius);
     mix-blend-mode: multiply;
 }
+.figure-block img[src*="example.gif"] {
+    mix-blend-mode: normal;
+}
 .figure-block figcaption {
     margin-top: 12px;
     font-family: var(--font-sans);
