@@ -56,42 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
         bubble.insertAdjacentElement('afterend', toggle);
     });
 
-    // Explorer filter chips
+    // Explorer: show only one conversation at a time, controlled by TOC + chips
     const chipContainer = document.querySelector('.explorer-controls');
-    if (chipContainer) {
-        chipContainer.addEventListener('click', (e) => {
-            const chip = e.target.closest('.chip');
-            if (!chip) return;
-            chipContainer.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            const filter = chip.dataset.filter;
-            document.querySelectorAll('.example-card').forEach(card => {
-                if (filter === 'all' || card.dataset.topic === filter) {
+    const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
+    const cards = Array.from(document.querySelectorAll('.example-card[id]'));
+
+    if (cards.length) {
+        const linkById = new Map();
+        tocLinks.forEach(a => linkById.set(a.getAttribute('href').slice(1), a));
+
+        const showCard = (id) => {
+            let target = null;
+            cards.forEach(card => {
+                if (card.id === id) {
                     card.style.display = '';
+                    target = card;
                 } else {
                     card.style.display = 'none';
                 }
             });
-            document.querySelectorAll('.toc-group').forEach(group => {
-                if (filter === 'all' || group.dataset.topic === filter) {
-                    group.style.display = '';
-                } else {
-                    group.style.display = 'none';
-                }
-            });
-        });
-    }
-
-    // TOC: highlight currently visible conversation
-    const tocLinks = Array.from(document.querySelectorAll('.toc-link'));
-    if (tocLinks.length) {
-        const linkById = new Map();
-        tocLinks.forEach(a => {
-            const id = a.getAttribute('href').slice(1);
-            linkById.set(id, a);
-        });
-
-        const setActive = (id) => {
             tocLinks.forEach(a => a.classList.remove('active'));
             const link = linkById.get(id);
             if (link) {
@@ -105,17 +88,59 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+            return target;
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            const visible = entries
-                .filter(e => e.isIntersecting)
-                .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-            if (visible.length) {
-                setActive(visible[0].target.id);
-            }
-        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+        const firstVisibleIdForFilter = (filter) => {
+            const match = cards.find(c => filter === 'all' || c.dataset.topic === filter);
+            return match ? match.id : null;
+        };
 
-        document.querySelectorAll('.example-card[id]').forEach(card => observer.observe(card));
+        // TOC link: switch to that conversation
+        tocLinks.forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = a.getAttribute('href').slice(1);
+                const target = showCard(id);
+                history.replaceState(null, '', '#' + id);
+                if (target) {
+                    const top = target.getBoundingClientRect().top + window.scrollY - 16;
+                    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Chip filter: limit which TOC entries appear, then show first matching card
+        if (chipContainer) {
+            chipContainer.addEventListener('click', (e) => {
+                const chip = e.target.closest('.chip');
+                if (!chip) return;
+                chipContainer.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                const filter = chip.dataset.filter;
+                document.querySelectorAll('.toc-group').forEach(group => {
+                    group.style.display = (filter === 'all' || group.dataset.topic === filter) ? '' : 'none';
+                });
+                const id = firstVisibleIdForFilter(filter);
+                if (id) {
+                    showCard(id);
+                    history.replaceState(null, '', '#' + id);
+                }
+            });
+        }
+
+        // Initial state: honor URL hash if it points to a known card; else show the first one
+        const initialId = (() => {
+            const hash = window.location.hash.replace(/^#/, '');
+            if (hash && linkById.has(hash)) return hash;
+            return cards[0].id;
+        })();
+        showCard(initialId);
+
+        // Browser back/forward navigation: update displayed card to match hash
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace(/^#/, '');
+            if (hash && linkById.has(hash)) showCard(hash);
+        });
     }
 });
