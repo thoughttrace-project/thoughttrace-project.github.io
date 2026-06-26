@@ -553,6 +553,13 @@ em { font-style: italic; }
     border-right: 1px solid var(--color-border-soft);
 }
 .stat:last-child { border-right: 0; }
+.stat .stat-icon {
+    color: var(--accent-blue);
+    fill: var(--accent-blue);
+    display: block;
+    margin: 0 auto 8px;
+}
+.stat .stat-icon path { fill: var(--accent-blue); }
 .stat .num {
     font-family: var(--font-serif);
     font-size: 26px;
